@@ -75,6 +75,7 @@ dependencies {
     }
     implementation 'com.airbnb.android:lottie:3.4.0'
     implementation 'com.github.jd-alexander:LikeButton:0.2.3'
+    implementation 'me.dm7.barcodescanner:zxing:1.9.13'
 
 
 }
