@@ -37,8 +37,8 @@ class Splash : AppCompatActivity() {
             runBlocking {
                 if (MetroDao.getMetro().size != 18) {
                     //running service
-                    //val intent = Intent(applicationContext, MyIntentService::class.java)
-                    //startService(intent)
+                    val intent = Intent(applicationContext, MyIntentService::class.java)
+                    startService(intent)
                 }else{
                     // or switching to mainActivity (comme sa on à pas l'impression qu'une activité s'ouvre puis une
                     // autre ce qui est visuellement pas top top)

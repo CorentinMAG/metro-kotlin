@@ -34,7 +34,7 @@ class MyScannerActivity : Activity(), ZXingScannerView.ResultHandler {
         val correspondances = list[2].split(",")
         val color:String=list[3]
         val intent= Intent(this,MetroScheduleActivity::class.java)
-        intent.putExtra("nom_metro",metro)
+        intent.putExtra("nom_metro","")
         intent.putExtra("nom_station",station)
         intent.putExtra("correspondances",ArrayList<String>(correspondances))
         intent.putExtra("color",color)
