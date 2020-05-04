@@ -40,4 +40,9 @@
         android:name="fr.epf.ratpnav.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/map_fragment"
+        android:name="fr.epf.ratpnav.ui.map.MapsFragment"
+        android:label="Ma position"
+        tools:layout="@layout/fragment_maps"/>
 </navigation>

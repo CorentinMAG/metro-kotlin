@@ -11,7 +11,9 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.RelativeLayout
 import android.widget.Toast
@@ -27,9 +29,13 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.view.menu.MenuView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.get
+import fr.epf.ratpnav.ui.slideshow.SlideshowFragment
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.coroutines.*
 
@@ -49,6 +55,9 @@ class MainActivity : AppCompatActivity(){
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
+
+
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         floating_button.setOnClickListener{
@@ -62,13 +71,14 @@ class MainActivity : AppCompatActivity(){
         }
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.map_fragment
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#00AA91")))
         window.statusBarColor = Color.parseColor("#00AA91")
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -83,6 +93,10 @@ class MainActivity : AppCompatActivity(){
                 startActivity(intent)
             } else {
                 Toast.makeText(this, "camera permission denied", Toast.LENGTH_LONG).show();
+            }
+        }
+        if (requestCode == 10) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             }
         }
 }
