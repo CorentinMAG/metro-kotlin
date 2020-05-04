@@ -9,3 +9,5 @@ Nation QR Code             |  Chatelet QR Code        |   Gare d'Austerlitz  | S
 * Rajout d'une carte des métros parisiens
 * swipe vers le bas une fois qu'on a la liste des stations d'un métro pour actualiser les horaires
 * swipe vers le bas quand on est dans l'activité des horaires des stations pour actualiser les horaires
+* ajout d'une carte des metros avec zoom
+* ajout utilisation de google map & posibilité d'obtenir la localisation de la personne
