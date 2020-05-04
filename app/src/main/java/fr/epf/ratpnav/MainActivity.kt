@@ -7,10 +7,12 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.location.LocationManager
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -34,6 +36,8 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import fr.epf.ratpnav.ui.slideshow.SlideshowFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -97,6 +101,8 @@ class MainActivity : AppCompatActivity(){
         }
         if (requestCode == 10) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                val intent= Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                startActivityForResult(intent,100)
             }
         }
 }
