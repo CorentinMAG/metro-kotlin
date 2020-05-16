@@ -19,11 +19,6 @@ interface APIService {
     ): GetStationResult
 
     @GET("traffic/{type}")
-    suspend fun getInfoForEachLine(
-        @Path("type") type:String
-    ): GetTrafficResult
-
-    @GET("traffic/{type}")
     open fun getInfoForEachLineAsync(@Path("type") type:String): Call<GetTrafficResult>
 
     @GET("schedules/{type}/{line}/{station}/{way}")

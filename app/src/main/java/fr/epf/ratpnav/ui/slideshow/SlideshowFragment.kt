@@ -1,7 +1,11 @@
 package fr.epf.ratpnav.ui.slideshow
 
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
@@ -14,7 +18,7 @@ import fr.epf.ratpnav.models.Favoris
 import fr.epf.ratpnav.models.LikedStation
 import fr.epf.ratpnav.utils.LDao
 import fr.epf.ratpnav.utils.SDao
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 
 class SlideshowFragment : Fragment(),AdapterView.OnItemClickListener {
 
@@ -59,7 +63,22 @@ class SlideshowFragment : Fragment(),AdapterView.OnItemClickListener {
 
     override fun onResume() {
         super.onResume()
+        if(ListFavoris.size>0){
+            ListFavoris.clear()
+            adapter!!.notifyDataSetChanged()
+            runBlocking {
+                if(LDao().CheckTable()>0){
+                    textview!!.visibility=View.GONE
+                    ListLikedStation = LDao().getLiked()
+                    ListLikedStation.map {
+                        correspondances = SDao().getAllMetroFromStation(it.name)
+                        ListFavoris.add(Favoris(it.name,correspondances))
+                        adapter!!.notifyDataSetChanged()
+                    }
+                }
 
+            }
+        }
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
