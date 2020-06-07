@@ -17,7 +17,7 @@ Le menu en haut à gauche dévoile 4 onglets:
  * **Home** : l'onglet d'accueil
  * **Plan** : cet onglet fait apparaitre une carte zoomable des métros de paris
  * **Favoris** : Permet d'accéder aux stations qui ont été ajoutées aux favoris. On peu également supprimer les stations dans cet onglet.
- * **Ma position** : demande d'accéder aux service de géolocalisation. Une fois que la GPS est capté par l'appareil, google map zoom automatiquement sur notre position actuelle
+ * **Ma position** : demande d'accéder aux service de géolocalisation. Une fois que le GPS est capté par l'appareil, google map zoom automatiquement sur notre position actuelle
 
 Cliquer sur une ligne dans l'onglet home permet de faire apparaitre une liste des stations de celle-ci avec les métros qui arrivent imminement dans les deux directions.
 Des icones de ligne peuvent apparaitre a coté du nom d'une station, signifiant que celle ci est une station de correspondance entre plusieurs lignes.
